@@ -1,22 +1,11 @@
 {
   "version": 2,
-  "builds": [
-    {
-      "src": "index.html",
-      "use": "@vercel/static"
-    }
-  ],
   "routes": [
     {
       "src": "/(.*)",
       "dest": "/index.html"
     }
   ],
-  "functions": {
-    "config_server.py": {
-      "runtime": "python3.9"
-    }
-  },
   "env": {
     "PAYSTACK_PUBLIC_KEY": "@paystack_public_key",
     "PAYSTACK_SECRET_KEY": "@paystack_secret_key"
