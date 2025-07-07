@@ -2,6 +2,6 @@ window.APP_CONFIG = {
     MISTRAL_API_KEY: 'j4h3leTe769ILXBLzwsMkrKEzWqZjOTj',
     // Paystack keys will be loaded from server environment variables in production
     // These are fallback test keys for local development only
-    PAYSTACK_PUBLIC_KEY: 'pk_test_8b70f8a00437522927a0364448af436205f5ec12',
-    PAYSTACK_SECRET_KEY: 'sk_test_c55a894d1a46380a9e88566c3d149b5099633ca5'
+    PAYSTACK_PUBLIC_KEY: 'pk_live_9841715ba5385787820ba523c0e6315046fc8a9a',
+    PAYSTACK_SECRET_KEY: 'sk_live_a28c24635baf0265afc26682f5cb19609eb25421'
 };
