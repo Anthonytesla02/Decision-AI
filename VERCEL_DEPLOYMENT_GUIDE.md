@@ -39,12 +39,26 @@ This guide will help you deploy your Decision AI application to Vercel with full
 Vercel will automatically detect this as a static site. No build configuration needed!
 
 ### 2.3 Environment Variables Setup
-In the Vercel dashboard, go to Settings → Environment Variables and add:
+**IMPORTANT**: You must add these environment variables in the Vercel dashboard:
 
-```
-PAYSTACK_PUBLIC_KEY = your_paystack_public_key_here
-PAYSTACK_SECRET_KEY = your_paystack_secret_key_here
-```
+1. Go to your project in Vercel dashboard
+2. Click on **Settings** tab
+3. Click on **Environment Variables** in the sidebar
+4. Add these variables one by one:
+
+**Variable 1:**
+- Name: `PAYSTACK_PUBLIC_KEY`
+- Value: `your_paystack_public_key_here` (starts with pk_test_ or pk_live_)
+- Environment: Production, Preview, Development (select all)
+
+**Variable 2:**
+- Name: `PAYSTACK_SECRET_KEY`
+- Value: `your_paystack_secret_key_here` (starts with sk_test_ or sk_live_)
+- Environment: Production, Preview, Development (select all)
+
+**After adding variables:**
+- Click **Save** for each variable
+- **Redeploy** your application (go to Deployments tab and click "Redeploy")
 
 **Important**: 
 - Use your **LIVE** Paystack keys for production

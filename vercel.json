@@ -5,9 +5,5 @@
       "src": "/(.*)",
       "dest": "/index.html"
     }
-  ],
-  "env": {
-    "PAYSTACK_PUBLIC_KEY": "@paystack_public_key",
-    "PAYSTACK_SECRET_KEY": "@paystack_secret_key"
-  }
+  ]
 }
