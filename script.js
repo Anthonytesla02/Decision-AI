@@ -1825,17 +1825,24 @@ Trust your analysis, but also trust your intuition. If you've done the logical w
     }
 
     async getPaystackPublicKey() {
-        // First check if already loaded in config
-        if (window.APP_CONFIG?.PAYSTACK_PUBLIC_KEY && 
-            !window.APP_CONFIG.PAYSTACK_PUBLIC_KEY.includes('demo')) {
-            return window.APP_CONFIG.PAYSTACK_PUBLIC_KEY;
+        // First try to fetch from server (for Vercel environment variables)
+        try {
+            const response = await fetch('/api/config');
+            if (response.ok) {
+                const config = await response.json();
+                if (config.PAYSTACK_PUBLIC_KEY) {
+                    console.log('Using server-provided API key:', config.PAYSTACK_PUBLIC_KEY.substring(0, 10) + '...');
+                    return config.PAYSTACK_PUBLIC_KEY;
+                }
+            }
+        } catch (error) {
+            console.log('Server config not available, falling back to client config');
         }
 
-        // For Replit environment, the keys should be in the config.js file
-        // This is a simplified approach for demo - in production you'd fetch from server
-        const testKey = window.APP_CONFIG?.PAYSTACK_PUBLIC_KEY;
-        if (testKey) {
-            return testKey;
+        // Fallback to client-side config
+        if (window.APP_CONFIG?.PAYSTACK_PUBLIC_KEY) {
+            console.log('Using client config API key:', window.APP_CONFIG.PAYSTACK_PUBLIC_KEY.substring(0, 10) + '...');
+            return window.APP_CONFIG.PAYSTACK_PUBLIC_KEY;
         }
 
         // Show error if no key available
