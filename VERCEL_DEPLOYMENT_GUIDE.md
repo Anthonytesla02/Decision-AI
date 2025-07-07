@@ -140,7 +140,15 @@ PAYSTACK_SECRET_KEY = sk_test_... or sk_live_...
   - Professional: `PLN_sh1x79iqqxvj20m` (100 cedis = 10,000 pesewas)
   - Premium: `PLN_e3cd7974vply6c1` (250 cedis = 25,000 pesewas)
 
-#### 4. CORS Errors
+#### 4. CSS/JavaScript Not Loading (App Looks Raw)
+**Problem**: Static assets (CSS/JS) aren't loading, app appears unstyled
+**Solution**: 
+- Ensure your `vercel.json` is simplified (should only contain `{"version": 2}`)
+- Check that all files are in the root directory of your repository
+- Verify file paths in `index.html` are correct (should be `href="styles.css"`, `src="script.js"`)
+- Redeploy after making changes
+
+#### 5. CORS Errors
 **Solution**: Add your Vercel domain to Paystack allowed domains
 
 ## Deployment Checklist
